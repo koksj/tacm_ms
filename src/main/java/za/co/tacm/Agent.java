@@ -1,13 +1,23 @@
 package za.co.tacm;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class Agent {
 
-    @Id    
-    private String id;
+@Entity
+public class Agent implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+  
+    private String id;     // famer id
+    @Id 
+    private String aid; // Agent id
     private String firstName;
     private String lastName;
     private String identityNumber;
@@ -16,7 +26,7 @@ public class Agent {
     private String email;
     private String businessName;
     private String companyRegistrationNumber;
-    private String province;  
+    private String province;
     private String officeNumber;
     private String alternativeContactNumber;
     private String alternativeEmailAddress;
@@ -26,14 +36,18 @@ public class Agent {
     private String nameOfBusinessRepresentative;
     private String businessRepresentativeContactNumber;
     private String businessRepresentativeEmailAddress;
+   
+    public Agent() {
 
-    public String getId() {
-        return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getAid() {
+        return aid;
     }
+
+    public void setAid(String aid) {
+        this.aid = aid;
+    }   
 
     public String getFirstName() {
         return firstName;
@@ -179,20 +193,12 @@ public class Agent {
         this.businessRepresentativeEmailAddress = businessRepresentativeEmailAddress;
     }
 
-    @Override
-    public String toString() {
-        return "Agent [alternativeContactNumber=" + alternativeContactNumber + ", alternativeEmailAddress="
-                + alternativeEmailAddress + ", businessName=" + businessName + ", businessRepresentativeContactNumber="
-                + businessRepresentativeContactNumber + ", businessRepresentativeEmailAddress="
-                + businessRepresentativeEmailAddress + ", companyRegistrationNumber=" + companyRegistrationNumber
-                + ", email=" + email + ", firstName=" + firstName + ", headOfficePhysicalAddress="
-                + headOfficePhysicalAddress + ", id=" + id + ", identityNumber=" + identityNumber + ", lastName="
-                + lastName + ", mobileNumber=" + mobileNumber + ", nameOfBusinessRepresentative="
-                + nameOfBusinessRepresentative + ", officeNumber=" + officeNumber + ", physicalAddress="
-                + physicalAddress + ", primaryHeadOfficeContactNumber=" + primaryHeadOfficeContactNumber + ", province="
-                + province + ", vatNumber=" + vatNumber + "]";
+    public String getId() {
+        return id;
     }
 
-    
-    
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }

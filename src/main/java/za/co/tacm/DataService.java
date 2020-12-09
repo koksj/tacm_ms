@@ -22,25 +22,14 @@ public class DataService {
 
     @Transactional
     public void createFarmer(Farmer farmer) {
+
+      
         Farmer farmerTest = em.find(Farmer.class, farmer.getId());
         if (farmerTest != null) {
             em.merge(farmer);
             log.info("Merge farmer");
         } else {
             em.persist(farmer);
-            log.info("Persist farmer");
-        }
-
-    }
-
-    @Transactional
-    public void createAgent(Agent agent) {
-        Farmer farmerTest = em.find(Farmer.class, agent.getId());
-        if (farmerTest != null) {
-            em.merge(agent);
-            log.info("Merge farmer");
-        } else {
-            em.persist(agent);
             log.info("Persist farmer");
         }
 
@@ -91,16 +80,40 @@ public class DataService {
 
     }
 
-    public Agent getAgent(String id) {
+    /**
+     * Create or Merge an agent in the DB
+     * @param agent
+     */
 
-        Agent agent = em.find(Agent.class, id);
+    @Transactional
+    public void createAgent(Agent agent) {        
+
+        Agent tmp = em.find(Agent.class, agent.getAid());
+        if(tmp == null) {
+            em.persist(agent);
+        } else {
+            em.merge(agent);
+        }
+            
+    }
+
+
+    /**
+     * 
+     * @param id
+     * @param aid  
+     * @return
+     */
+    public Agent getAgent(String aid) {
+        
+        Agent agent = em.find(Agent.class, aid);
 
         if (agent == null) {
-            log.info("No data for farmer id: " + id);
+            log.info("No data for id and aid: " + aid);
             agent = new Agent();
-            agent.setId(id);
+            agent.setId(aid);
         } else {
-            log.info("Agent id fetched: " + agent.getId());
+            log.info("Agent id fetched: " + agent.getId());            
         }
 
         return agent;

@@ -1,12 +1,19 @@
 package za.co.tacm;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Farmer extends Person{
+public class Farmer extends Person implements Serializable {
 
-    @Id    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;   
+
+    @Id
     private String id;
     private String firstName;
     private String lastName;
@@ -16,7 +23,7 @@ public class Farmer extends Person{
     private String email;
     private String businessName;
     private String companyRegistrationNumber;
-    private String province;  
+    private String province;
     private String officeNumber;
     private String alternativeContactNumber;
     private String alternativeEmailAddress;
@@ -38,6 +45,7 @@ public class Farmer extends Person{
         this.id = id;
     }
 
+    
     public String getFirstName() {
         return firstName;
     }
@@ -182,18 +190,4 @@ public class Farmer extends Person{
         this.businessRepresentativeEmailAddress = businessRepresentativeEmailAddress;
     }
 
-    @Override
-    public String toString() {
-        return "Farmer [alternativeContactNumber=" + alternativeContactNumber + ", alternativeEmailAddress="
-                + alternativeEmailAddress + ", businessName=" + businessName + ", businessRepresentativeContactNumber="
-                + businessRepresentativeContactNumber + ", businessRepresentativeEmailAddress="
-                + businessRepresentativeEmailAddress + ", companyRegistrationNumber=" + companyRegistrationNumber
-                + ", email=" + email + ", firstName=" + firstName + ", headOfficePhysicalAddress="
-                + headOfficePhysicalAddress + ", id=" + id + ", identityNumber=" + identityNumber + ", lastName="
-                + lastName + ", mobileNumber=" + mobileNumber + ", nameOfBusinessRepresentative="
-                + nameOfBusinessRepresentative + ", officeNumber=" + officeNumber + ", physicalAddress="
-                + physicalAddress + ", primaryHeadOfficeContactNumber=" + primaryHeadOfficeContactNumber + ", province="
-                + province + ", vatNumber=" + vatNumber + "]";
-    }
-        
 }

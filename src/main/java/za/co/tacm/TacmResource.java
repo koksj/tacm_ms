@@ -36,6 +36,8 @@ public class TacmResource {
     @Path("/v1/farmer")
     public Response farmer(Farmer farmer) {
 
+        log.info("Farmer Id" + farmer.getId());
+        
         dataService.createFarmer(farmer);
 
         return Response.ok().build();
@@ -85,20 +87,30 @@ public class TacmResource {
         return Response.ok().build();
     }
 
+    /**
+     * Create a new agent
+     * @param agent
+     * @return
+     */
     @POST
     @Path("/v1/agent")
     public Response agent(Agent agent) {
-
+        
         dataService.createAgent(agent);
 
         return Response.ok().build();
     }
 
+    /**
+     * 
+     * @param aid Primary key for agant
+     * @return
+     */
     @GET
-    @Path("/v1/agent/{id}")
-    public Response agent(@PathParam("id") String id) {
+    @Path("/v1/agent/{aid}")
+    public Response agent(@PathParam("aid") String aid) {
 
-        Agent agent = dataService.getAgent(id);
+        Agent agent = dataService.getAgent(aid);
 
         return Response.ok(agent).build();
     }   
