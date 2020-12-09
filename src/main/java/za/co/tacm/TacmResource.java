@@ -35,8 +35,8 @@ public class TacmResource {
     @POST
     @Path("/v1/farmer")
     public Response farmer(Farmer farmer) {
-     
-        dataService.createFarmer(farmer);          
+
+        dataService.createFarmer(farmer);
 
         return Response.ok().build();
     }
@@ -45,8 +45,8 @@ public class TacmResource {
     @Path("/v1/farmer/{id}")
     public Response farmer(@PathParam("id") String id) {
 
-        Farmer farmer =  dataService.getFarmer(id);
-        
+        Farmer farmer = dataService.getFarmer(id);
+
         return Response.ok(farmer).build();
     }
 
@@ -68,21 +68,39 @@ public class TacmResource {
     }
 
     @GET
-    @Path("/v1/registration/{id}") 
+    @Path("/v1/registration/{id}")
     public Response registrationCompleted(@PathParam("id") String id) {
 
-        Registration registration =  dataService.getRegistration(id);
-        
+        Registration registration = dataService.getRegistration(id);
+
         return Response.ok(registration).build();
     }
 
     @POST
     @Path("/v1/registration")
     public Response registration(Registration registration) {
-     
-        dataService.createRegistration(registration);          
+
+        dataService.createRegistration(registration);
 
         return Response.ok().build();
     }
+
+    @POST
+    @Path("/v1/agent")
+    public Response agent(Agent agent) {
+
+        dataService.createAgent(agent);
+
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path("/v1/agent/{id}")
+    public Response agent(@PathParam("id") String id) {
+
+        Agent agent = dataService.getAgent(id);
+
+        return Response.ok(agent).build();
+    }   
 
 }
