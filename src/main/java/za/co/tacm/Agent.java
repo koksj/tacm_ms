@@ -4,9 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Agent.findAgentsByFamer",query = "SELECT a FROM Agent a WHERE a.id = :id")
+    })
 public class Agent implements Serializable {
 
     /**
@@ -19,6 +24,7 @@ public class Agent implements Serializable {
     @Id 
     private String aid; // Agent id
     private String firstName;
+    private String deliveryAddress;
     private String lastName;
     private String identityNumber;
     private String mobileNumber;
@@ -199,6 +205,14 @@ public class Agent implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 
 }

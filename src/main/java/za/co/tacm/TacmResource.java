@@ -3,10 +3,14 @@ package za.co.tacm;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.json.Json;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,6 +21,8 @@ import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.vertx.core.json.JsonObject;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -113,6 +119,41 @@ public class TacmResource {
         Agent agent = dataService.getAgent(aid);
 
         return Response.ok(agent).build();
-    }   
+    }
+
+    @DELETE
+    @Path("/v1/agent/{aid}")
+    public Response deleteAgent(@PathParam("aid") String aid) {
+
+        dataService.deleteAgent(aid);
+
+        return Response.ok().build();
+    }
+
+     /**
+     * Returns the agaents registered by a farmer
+     * @param id PK for farmer
+     * @return
+     */
+    @GET
+    @Path("/v1/agents/{id}")
+    public Response getAgents(@PathParam("id") String id) {
+
+        List<Agent> agents = dataService.getAgents(id);
+
+        return Response.ok(agents).build();
+    }
+
+
+    @GET
+    @Path("/v1/uuid/")   
+    public Response getUUID() {
+       
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.put("uuid", UUID.randomUUID().toString());        
+
+        return Response.ok(jsonObject.toString()).build();
+    }
+
 
 }

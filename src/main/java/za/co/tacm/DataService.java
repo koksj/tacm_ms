@@ -1,5 +1,8 @@
 package za.co.tacm;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -23,7 +26,6 @@ public class DataService {
     @Transactional
     public void createFarmer(Farmer farmer) {
 
-      
         Farmer farmerTest = em.find(Farmer.class, farmer.getId());
         if (farmerTest != null) {
             em.merge(farmer);
@@ -82,30 +84,29 @@ public class DataService {
 
     /**
      * Create or Merge an agent in the DB
+     * 
      * @param agent
      */
 
     @Transactional
-    public void createAgent(Agent agent) {        
+    public void createAgent(Agent agent) {
 
         Agent tmp = em.find(Agent.class, agent.getAid());
-        if(tmp == null) {
+        if (tmp == null) {
             em.persist(agent);
         } else {
             em.merge(agent);
         }
-            
-    }
 
+    }
 
     /**
      * 
-     * @param id
-     * @param aid  
+     * @param aid PK for Agent
      * @return
      */
     public Agent getAgent(String aid) {
-        
+
         Agent agent = em.find(Agent.class, aid);
 
         if (agent == null) {
@@ -113,10 +114,38 @@ public class DataService {
             agent = new Agent();
             agent.setId(aid);
         } else {
-            log.info("Agent id fetched: " + agent.getId());            
+            log.info("Agent id fetched: " + agent.getId());
         }
 
         return agent;
+    }
+
+    public List<Agent> getAgents(String id) {
+
+        List<Agent> agents = em.createNamedQuery("Agent.findAgentsByFamer", Agent.class).setParameter("id", id)
+                .getResultList();
+
+        return agents;
+    }
+
+    /**
+     * Delete an agent by PK
+     * 
+     * @param aid
+     * 
+     */
+    @Transactional
+    public void deleteAgent(String aid) {
+
+        Agent agent = em.find(Agent.class, aid);
+
+        if (agent == null) {
+            log.error("Cannot delete agent id: " + aid + " No such entity found.");
+        } else {
+            log.info("Deleting Agent id: " + aid);
+            em.remove(agent);
+        }
+
     }
 
 }
