@@ -31,6 +31,10 @@ If you want to learn more about building native executables, please consult http
 
 ./mvnw quarkus:add-extension -Dextensions="quarkus-hibernate-orm"
 ./mvnw quarkus:add-extension -Dextensions="quarkus-jdbc-postgresql"
+./mvnw quarkus:add-extension -Dextensions="quarkus-keycloak-authorization"
+./mvnw quarkus:add-extension -Dextensions="quarkus-oidc"
+./mvnw quarkus:add-extension -Dextensions=""
+
 
 
 export KUBECONFIG=/home/skok/Dev/SCM/Git/Centilliard/fcos/install/auth/kubeconfig

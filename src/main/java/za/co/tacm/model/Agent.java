@@ -1,28 +1,9 @@
-package za.co.tacm;
+package za.co.tacm.model;
 
-import java.io.Serializable;
+public class Agent {
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-
-
-@Entity
-@NamedQueries({
-    @NamedQuery(name = "Agent.findAgentsByFamer",query = "SELECT a FROM Agent a WHERE a.id = :id")
-    })
-public class Agent implements Serializable {
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-
-  
-    private String id;     // famer id
-    @Id 
     private String aid; // Agent id
+    private String farmer_id;
     private String firstName;
     private String deliveryAddress;
     private String lastName;
@@ -42,9 +23,8 @@ public class Agent implements Serializable {
     private String nameOfBusinessRepresentative;
     private String businessRepresentativeContactNumber;
     private String businessRepresentativeEmailAddress;
-   
-    public Agent() {
 
+    public Agent() {
     }
 
     public String getAid() {
@@ -53,7 +33,15 @@ public class Agent implements Serializable {
 
     public void setAid(String aid) {
         this.aid = aid;
-    }   
+    }
+
+    public String getFarmer_id() {
+        return farmer_id;
+    }
+
+    public void setFarmer_id(String farmer_id) {
+        this.farmer_id = farmer_id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -61,6 +49,14 @@ public class Agent implements Serializable {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 
     public String getLastName() {
@@ -199,20 +195,7 @@ public class Agent implements Serializable {
         this.businessRepresentativeEmailAddress = businessRepresentativeEmailAddress;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
+    
+   
+    
 }

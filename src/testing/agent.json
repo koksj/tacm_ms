@@ -1,0 +1,23 @@
+{
+    "aid": "36fd8d75-fa20-424d-8ca7-60b44071ce29",
+    "alternativeContactNumber": "0123456789",
+    "alternativeEmailAddress": "user@gmail.com",
+    "businessName": "Vleis Sentraal",
+    "businessRepresentativeContactNumber": "0123456789",
+    "businessRepresentativeEmailAddress": "usr@gmail.com",
+    "companyRegistrationNumber": "ck1234",
+    "deliveryAddress": "Damplass",
+    "email": "user@gmail.com",
+    "farmer_id": "dcff4d7d-2c53-4473-b70a-8f2c9dea76bd",
+    "firstName": "Shaun",
+    "headOfficePhysicalAddress": "Vredefort",
+    "identityNumber": "1234567890123",
+    "lastName": "Ooms",
+    "mobileNumber": "0123456789",
+    "nameOfBusinessRepresentative": "Robert",
+    "officeNumber": "0123456789",
+    "physicalAddress": "Damplaatz",
+    "primaryHeadOfficeContactNumber": "0123456789",
+    "province": "province-8",
+    "vatNumber": "vat12233"
+  }

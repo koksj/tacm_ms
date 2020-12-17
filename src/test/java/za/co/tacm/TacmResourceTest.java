@@ -9,6 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class TacmResourceTest {
 
+    /*
     @Test
     public void testHelloEndpoint() {
         given()
@@ -17,5 +18,5 @@ public class TacmResourceTest {
              .statusCode(200)
              .body(is("hello"));
     }
-
+*/
 }

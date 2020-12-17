@@ -1,16 +1,22 @@
-package za.co.tacm;
+package za.co.tacm.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Registration {
+@Table(name = "registration")
+public class RegistrationEntity {
 
-    @Id    
+    @Id
+    @Column(name = "registration_id")
     private String id;
+
+    @Column(name = "registration_completed")
     private boolean registrationCompleted;
 
-    public Registration() {
+    public RegistrationEntity() {
     }
 
     public String getId() {

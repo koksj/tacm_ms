@@ -1,0 +1,21 @@
+{
+  "alternativeContactNumber": "0123456789",
+  "alternativeEmailAddress": "usr@gmail.com",
+  "businessName": "Helpmekaar",
+  "businessRepresentativeContactNumber": "0123456789",
+  "businessRepresentativeEmailAddress": "usr@gmail.com",
+  "companyRegistrationNumber": "RX345",
+  "email": "user@gmail.com",
+  "firstName": "Ben",
+  "headOfficePhysicalAddress": "Paradys, Kroonstad",
+  "id": "dcff4d7d-2c53-4473-b70a-8f2c9dea76bd",
+  "identityNumber": "1234567890123",
+  "lastName": "Schutte",
+  "mobileNumber": "01234567890",
+  "nameOfBusinessRepresentative": "Danie",
+  "officeNumber": "0123456789",
+  "physicalAddress": "Paradys, Kroonstad",
+  "primaryHeadOfficeContactNumber": "0123456789",
+  "province": "Gauteng",
+  "vatNumber": "vt-01234"
+}
